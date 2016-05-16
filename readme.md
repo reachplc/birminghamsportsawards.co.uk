@@ -5,7 +5,7 @@ The starting place for building a website on the WordPress platform.
 ## Project URLS
 
 - [GitHub Readme](https://github.com/trinitymirror/birminghamsportsawards/blob/master/README.md)
-- [Continuous Integration](https://codeship.com/projects/)
+- [Continuous Integration](https://codeship.com/projects/152209/)
 - [Local](http://www.birminghamsportsawards.local/)
 - [QA](#)
 - [Production](http://www.birminghamsportsawards.co.uk/)
