@@ -51,7 +51,9 @@ html/app/plugins-mu/*
 #### White-list Plugins
 !html/app/plugins/index.php
 !html/app/plugins-mu/index.php
-
+!html/app/plugins-mu/cmb2.php
+!html/app/plugins-mu/hm-gtm.php
+!html/app/plugins-mu/ti-security.php
 
 ### Themes
 .sass-cache
