@@ -7,7 +7,7 @@ $webroot_dir = $root_dir . '/html';
 $dotenv = new Dotenv\Dotenv( $root_dir );
 if ( file_exists( $root_dir . '/.env' ) ) {
 	$dotenv->load();
-	$dotenv->required( ['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL'] );
+	$dotenv->required( array( 'DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL' ) );
 }
 /**
  * Set up our global environment constant and load its config first
@@ -76,13 +76,13 @@ define( 'WP_DEFAULT_THEME', getenv( 'DEFAULT_THEME' ) ?: 'twentysixteen' );
 /**
  * Allow WordPress Multisite
  */
-//define( 'WP_ALLOW_MULTISITE', true );
-/*define( 'MULTISITE', true );
+define( 'WP_ALLOW_MULTISITE', true );
+define( 'MULTISITE', true );
 define( 'SUBDOMAIN_INSTALL', false );
 define( 'DOMAIN_CURRENT_SITE', getenv( 'DOMAIN_CURRENT_SITE' ) );
 define( 'PATH_CURRENT_SITE', '/' );
 define( 'SITE_ID_CURRENT_SITE', 1 );
-define( 'BLOG_ID_CURRENT_SITE', 1 );*/
+define( 'BLOG_ID_CURRENT_SITE', 1 );
 
 /**
  * Drop-ins
