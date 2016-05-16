@@ -1,0 +1,61 @@
+# Birmingham Post Business Awards
+
+## Development
+_assets
+config/environments/development.php
+
+## System
+
+error_log
+.DS_Store
+
+## Server
+
+.env
+/shared/*
+error.log
+access.log
+
+## Development
+
+bin
+.vagrant
+vendor/*
+
+## PHP
+composer.lock
+
+## NodeJS
+
+node_modules/
+npm-debug.log
+
+## WordPress
+
+html/wp/*
+html/media/*
+
+!html/media/index.php
+
+### Languages
+html/app/languages/*
+
+#### White-list Languages
+!html/app/languages/index.php
+
+### Plugins
+html/app/db.php
+html/app/plugins/*
+html/app/plugins-mu/*
+
+#### White-list Plugins
+!html/app/plugins/index.php
+!html/app/plugins-mu/index.php
+
+
+### Themes
+.sass-cache
+html/app/themes/*
+
+#### White-list Themes
+!html/app/themes/index.php

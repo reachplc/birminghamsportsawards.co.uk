@@ -1,0 +1,102 @@
+{
+  "name": "trinitymirror/birminghamsportsawards",
+  "type": "project",
+  "license": "",
+  "description": "WordPress Multisite for the Birmingham Sports Awards",
+  "homepage": "http://www.birminghamsportsawards.co.uk/",
+  "authors": [
+    {
+      "name": "Michael Bragg",
+      "email": "michael@michaelbragg.net",
+      "homepage": "http://www.michaelbragg.net"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "composer",
+    "wp"
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+			"type": "vcs",
+			"url": "https://github.com/WebDevStudios/CMB2.git"
+    },
+		{
+			"type": "vcs",
+			"url": "https://github.com/thoughtsideas/ti-security.git"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "humanmade/hm-gtm",
+        "type": "wordpress-muplugin",
+        "version": "1.0",
+        "source": {
+          "url": "https://github.com/humanmade/hm-gtm.git",
+          "type": "vcs",
+          "reference": "origin/master"
+        },
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/humanmade/hm-gtm/archive/master.zip"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "johnpbloch/wordpress": "4.5.x",
+    "vlucas/phpdotenv": "2.2.x",
+    "composer/installers": "1.0.x",
+    "wpackagist-plugin/wordpress-seo": "3.1.x",
+    "wpackagist-plugin/wp-robots-txt": "1.1.x",
+    "wpackagist-plugin/wp-security-audit-log": "2.4.x",
+    "wpackagist-plugin/brute-force-login-protection": "1.5.x",
+    "wpackagist-plugin/safe-redirect-manager": "1.7.x",
+    "wpackagist-plugin/post-type-archive-links": "1.3.x",
+    "wpackagist-plugin/admin-menu-manager": "1.0.x",
+    "wpackagist-plugin/custom-contact-forms": "7.8.x",
+		"wpackagist-plugin/wp-mail-smtp": "0.9.x",
+		"wpackagist-plugin/w3-total-cache": "0.9.x",
+		"wpackagist-plugin/backwpup": "3.3.x",
+    "wpackagist-plugin/wp-help": "1.4.x",
+		"webdevstudios/cmb2": "2.2.x",
+    "humanmade/hm-gtm": "1.0.x",
+    "thoughtsideas/ti-security": "1.0.x"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "*",
+    "wp-coding-standards/wpcs": "*",
+    "wpackagist-theme/twentysixteen": "*",
+    "wpackagist-plugin/wordpress-importer": "*",
+    "wpackagist-plugin/debug-bar": "*",
+    "wpackagist-plugin/debug-objects": "*",
+    "wpackagist-plugin/debug-queries": "*",
+    "wpackagist-plugin/query-monitor": "*",
+    "wpackagist-plugin/log-deprecated-notices": "*",
+    "wpackagist-plugin/p3-profiler": "*",
+    "wpackagist-plugin/theme-check": "*",
+    "wpackagist-plugin/rewrite-rules-inspector": "*",
+    "wpackagist-plugin/user-switching": "*",
+    "wpackagist-plugin/vip-scanner": "*"
+  },
+  "extra": {
+    "wordpress-install-dir": "html/wp",
+		"installer-paths": {
+      "html/app/plugins-mu/{$name}/": [
+        "type:wordpress-muplugin",
+        "webdevstudios/cmb2"
+      ],
+      "html/app/plugins/{$name}/": [
+				"type:wordpress-plugin"
+			],
+      "html/app/themes/{$name}/": [
+				"type:wordpress-theme"
+			]
+    }
+  }
+}
