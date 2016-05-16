@@ -4,7 +4,15 @@
  * This file is required in the root directory so WordPress can find it.
  * WP is hardcoded to look in its own directory or one directory up for wp-config.php.
  */
-$root_dir = dirname(__DIR__);
+
+// @codingStandardsIgnoreStart
+/**
+ * We use ``$_SERVER['DOCUMENT_ROOT']` as `__DIR__` doesn't work well with symlinks
+ */
+if ( isset( $_SERVER['DOCUMENT_ROOT'] ) ) {
+	$root_dir = dirname( $_SERVER['DOCUMENT_ROOT'] ); // Input var okay.
+}
+// @codingStandardsIgnoreEnd
 
 require_once( $root_dir . '/vendor/autoload.php' );
 require_once( $root_dir . '/config/application.php' );
