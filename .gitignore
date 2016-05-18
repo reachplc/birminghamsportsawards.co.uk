@@ -56,6 +56,7 @@ html/app/plugins-mu/*
 !html/app/plugins-mu/hm-gtm.php
 !html/app/plugins-mu/ti-security.php
 !html/app/plugins-mu/tm-events-awards.php
+!html/app/plugins-mu/tm-events-partners.php
 
 ### Themes
 .sass-cache
