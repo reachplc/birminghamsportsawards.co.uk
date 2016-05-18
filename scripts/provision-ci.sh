@@ -23,10 +23,10 @@ npm install grunt-cli -g
 npm install -g bower
 
 # Setup Theme
-#echo "Setup Theme"
-#npm install --prefix ./html/app/themes/bpba/
-#cd ./html/app/themes/bpba/
-#bower install
-#grunt dev
-#cd ~/clone
+echo "Setup Theme"
+npm install --prefix ./html/app/themes/tm-events-2016/
+cd ./html/app/themes/tm-events-2016/
+bower install
+grunt dev
+cd ~/clone
 #grunt --base ./html/app/themes/ctba-2016/ dev

@@ -9,10 +9,10 @@ echo "Install dependencies"
 composer install --no-dev --no-interaction
 
 # Build theme
-#cd ./html/app/themes/bpba/
-#bower install
-#grunt dev
-#cd ~/clone
+cd ./html/app/themes/bpba/
+bower install
+grunt build
+cd ~/clone
 
 # Set timestamp
 echo "Set Time Stamp"
