@@ -55,6 +55,10 @@ html/app/plugins-mu/*
 !html/app/plugins-mu/cmb2.php
 !html/app/plugins-mu/hm-gtm.php
 !html/app/plugins-mu/ti-security.php
+!html/app/plugins-mu/ti-roles-and-capabilities.php
+!html/app/plugins-mu/ti-core-functions.php
+!html/app/plugins-mu/ti-widgets.php
+!html/app/plugins-mu/ti-wordpress-seo.php
 !html/app/plugins-mu/tm-events-awards.php
 !html/app/plugins-mu/tm-events-partners.php
 
