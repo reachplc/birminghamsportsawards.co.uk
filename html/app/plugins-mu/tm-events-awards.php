@@ -16,7 +16,7 @@ class TM_Events_Awards {
 
 		add_action(
 			'after_setup_theme',
-			array( $this, 'define_constants'),
+			array( $this, 'define_constants' ),
 			1
 		);
 
@@ -39,6 +39,11 @@ class TM_Events_Awards {
 		add_action(
 			'cmb2_admin_init',
 			array( $this, 'settings_page_fields' )
+		);
+
+		add_action(
+			'pre_get_posts',
+			array( $this, 'change_archive_awards_loop' )
 		);
 
 	}
@@ -181,7 +186,7 @@ class TM_Events_Awards {
 
 	public function settings_page_content() {
 
-		printf( '<h2>%1$s</h2>', esc_html( get_admin_page_title() ) );
+		printf( '<h1>%1$s</h1>', esc_html( get_admin_page_title() ) );
 
 		cmb2_metabox_form(
 			$this->meta_prefix . 'options',
@@ -199,8 +204,8 @@ class TM_Events_Awards {
 			'id'								=> $this->meta_prefix . 'options',
 			'title'							=> __( 'Page Text', 'tm-events-awards' ),
 			'show_on'						=> array(
-				'key'							=> 'options-page',
-				'value' 					=> array( 'tm-events-awards-options' )
+			'key'							=> 'options-page',
+			'value' 					=> array( 'tm-events-awards-options' )
 			),
 			'hookup'						=> false,
 			'context'						=> 'normal',
@@ -214,9 +219,9 @@ class TM_Events_Awards {
 			'desc'							=> __( 'The text to be displayed above the awards list on the archive page.', 'tm-events-awards' ),
 			'type'							=> 'wysiwyg',
 			'options'						=> array(
-				'wpautop'					=> true,
-				'media_buttons'		=> true,
-				'teeny'						=> true,
+			'wpautop'					=> true,
+			'media_buttons'		=> true,
+			'teeny'						=> true,
 			)
 		) );
 
@@ -233,6 +238,17 @@ class TM_Events_Awards {
 
 		return $content;
 
+	}
+
+	/**
+	 * Alter the default WP Query
+	 */
+	function change_archive_awards_loop( $query ) {
+		if ( $query->is_main_query() && ! is_admin() && is_post_type_archive( 'tm-events-awards' ) ) {
+			$query->set( 'posts_per_page', '30' );
+			$query->set( 'order', 'ASC' );
+			$query->set( 'orderby', 'menu_order' );
+		}
 	}
 
 	public function print_header_scripts() {
