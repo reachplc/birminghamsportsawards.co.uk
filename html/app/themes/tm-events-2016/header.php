@@ -68,10 +68,7 @@ else : ?>
 
 <?php if ( tm_hero_has_field( 'tagline' ) ) { ?>
 			<h4 class="hero__copy gamma"><?php echo esc_html( tm_hero_the_tagline() ); ?></h4>
-		<?php
-} else { ?>
-			<h4 class="hero__copy gamma">Celebrate your success in business with the Birmingham Post.</h4>
-		<?php } ?>
+<?php } ?>
 
 		<?php if ( tm_hero_has_field( 'btn_link' ) && tm_hero_has_field( 'btn_text' ) ) { ?>
 			<a class="hero__btn btn btn--primary" href="<?php echo esc_url( tm_hero_the_btn_link() ); ?>">
