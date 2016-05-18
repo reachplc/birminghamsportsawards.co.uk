@@ -1,0 +1,30 @@
+{
+  "name": "tm-events-2016",
+  "license": "",
+  "private": true,
+  "description": "Trinity Mirror Events 2016Theme",
+  "version": "1.0.0",
+  "homepage": "http://www.bpbusinessawards.co.uk",
+  "author": {
+    "name": "Trinity Mirror Creative",
+    "email": "tmcreative@trinitymirror.com",
+    "url": ""
+  },
+  "contributors": [
+    {
+      "name": "Michael Bragg",
+      "email": "michael@michaelbragg.net",
+      "url": "http://michaelbragg.net"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "1.0.x",
+    "bower": "1.7.x",
+    "grunt-contrib-csslint": "1.0.x",
+    "grunt-contrib-less": "1.3.x",
+    "grunt-contrib-watch": "1.0.x"
+  },
+  "scripts": {
+  }
+}

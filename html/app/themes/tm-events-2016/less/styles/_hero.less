@@ -1,0 +1,109 @@
+/**
+ * Hero
+ */
+
+/**
+ * Removes the margin-bottom used to add space between the header
+ * and main content
+ */
+
+.has-hero .header__main {
+  margin-bottom: 0;
+}
+
+.hero {
+// Allow child elements to be positioned relative to the hero container
+  position: relative;
+  height: 15.625em;
+  border-bottom: 12px solid @brand--red;
+  background-color: #040301;
+  // Centers the child image
+  text-align: center;
+}
+
+@media screen and ( min-width: 767px ){
+  .hero {
+    height: 33.75em;
+  }
+
+}
+
+.hero__content {
+  position: absolute;
+  top: 2em;
+  margin: 0 auto;
+  width:100%;
+  min-width: 300px;
+  max-width: 1000px;
+}
+
+@media screen and ( min-width: 480px ) {
+  .hero__content {
+    padding: 0 14.5px;
+  }
+}
+
+@media screen and ( min-width: 767px ){
+
+  .hero__content {
+    top: 3em;
+  }
+
+}
+
+@media screen and ( min-width: 850px ){
+
+  .hero__content {
+    top: 7em;
+  }
+
+}
+
+.hero--image {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+
+// Style the headline in the hero
+// @TODO: Extract to typography
+.hero__copy {
+  color: #fff;
+  font-weight: 100;
+  text-transform: uppercase;
+  text-shadow: 0 2px 6px #000;
+  letter-spacing: -0.01em;
+}
+
+@media screen and (min-width: 480px){
+  .hero__copy {
+    font-size: 2em;
+    line-height: 1.3em;
+  }
+
+}
+
+@media screen and (min-width: 767px){
+  .hero__copy {
+    font-size: 3.125em;
+    line-height: 1.1em;
+  }
+
+}
+
+@media screen and (min-width: 480px){
+
+  .hero__btn {
+    font-size: 1.25em;
+  }
+
+}
+
+@media screen and (min-width: 767px){
+
+  .hero__btn {
+    font-size: 1.5em;
+  }
+
+}

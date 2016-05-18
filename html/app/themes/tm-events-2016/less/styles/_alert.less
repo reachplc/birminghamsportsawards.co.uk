@@ -1,0 +1,61 @@
+/**
+ * Alerts
+ */
+
+.alert {
+  position: relative;
+  background: #ccc;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid #666;
+  }
+
+  .alert p {
+    margin-bottom: 0;
+  }
+
+  .alert--positive {
+    background: @brand--green;
+    border-color: @brand--green-dark;
+    font-family: @body__font-family;
+    color: @brand--white;
+    letter-spacing: -0.5px;
+  }
+
+	.alert--info {
+		color: #31708f;
+		background-color: #d9edf7;
+		border-color: #bcdff1;
+	}
+
+	.alert--danger {
+		color: @brand--white;
+		background-color: @brand--red;
+		border-color: @brand--red-dark;
+	}
+
+	.alert--warning {
+		color: #8a6d3b;
+		background-color: #fcf8e3;
+		border-color: #faf2cc;
+	}
+
+/* Position the close button */
+.alert__close {
+  position: absolute;
+  top: 0;
+  right: 14.5px;
+}
+
+/**
+ * Alert Message
+ * Example:
+    <section class="alert alert--message alert--type">
+      <a class="alert__close" href="#">×</a>
+      <p><strong>Ooops</strong> We need to notify you about an issue.</p>
+    </section>
+ *
+ */
+
+.alert--message {
+  padding: 14.5px;
+}

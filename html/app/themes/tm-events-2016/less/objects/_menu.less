@@ -1,0 +1,59 @@
+/**
+ * _menu.less
+ */
+
+.menu__icon {
+  border: none;  // Removes button border and background
+}
+
+.menu {
+  display: none;
+}
+
+//
+// 1. Removes bullets
+// 2. Removes default margin for ul
+// 3. Removes default padding
+//
+
+.menu {
+  list-style:none;  // 1.
+  margin-top: 0;  // 2.
+  margin-bottom: 0;  // 2.
+  padding-left:0;  // 3.
+}
+
+.menu > li,
+.menu > li > a {
+  display: block;
+}
+
+.is-active {
+  display: block;
+}
+
+// if JavaScript disabled
+
+.no-js .navicon {
+  display: none;
+}
+
+.no-js .main {
+  display: block;
+}
+
+//  Layout for larger screens
+
+@media screen and (min-width: 769px) {
+
+  .menu__icon {
+    display: none;
+  }
+  .menu {
+    display: block;
+  }
+  .menu > li,
+  .menu > li > a {
+    display: inline-block;
+  }
+}

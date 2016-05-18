@@ -1,0 +1,173 @@
+/**
+ * _form.less
+ */
+
+form {
+  margin-bottom: 2em;
+}
+
+fieldset {
+  margin-bottom: 3em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #ccc;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea,
+select {
+  margin-bottom: 1em;
+}
+
+//  Future-proof for responsive site
+//@media screen and (min-width: 48.25em) {
+
+  input[type=text],
+  input[type=email],
+  input[type=url],
+  input[type=password],
+  textarea,
+  select {
+    width: 100%;
+  }
+
+//}
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=password],
+textarea {
+  padding: 0.5em;
+  // Add padding to align text with paragraphs (-1px due to the border)
+  padding-right: 13.5px;
+  padding-left: 13.5px;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=password]:focus,
+textarea:focus,
+select:focus {
+  outline: 0;
+  border-color: @brand--blue;
+}
+
+textarea {
+  height: 150px;
+}
+
+
+/*select {
+  -webkit-appearance: none;
+  border-radius: 0;
+  background-color: #fafafa;
+  background-image: url('/static/gui/select-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center right 3%;
+}*/
+
+//  Error /Required
+//
+
+.error,
+.required {
+  //color: @brand--red-dark;
+  font-weight: normal;
+}
+
+label.error {
+  font-weight: normal;
+  color: @brand--red;
+}
+
+input.error,
+input.error:focus,
+select.error,
+textarea.error {
+border-color: @brand--red-dark;
+}
+
+input.valid,
+input.valid:focus,
+select.valid,
+select.valid:focus,
+textarea.valid {
+  border-color: @brand--blue;
+}
+
+/**
+   * Form Object
+
+
+   .form {}
+
+   .form-field__block > label {
+     display: block;
+   }
+
+    .form-field > label {
+     display: block;
+     margin-bottom: 0.5em;
+     font-weight: bold;
+    }
+    .form-field > input[type=text],
+    .form-field > input[type=email],
+    .form-field > input[type=url],
+    .form-field > input[type=password],
+    .form-field > select,
+    .form-field > textarea {
+      margin-bottom: 1em;
+      width: 100%;
+    }
+
+    [type="checkbox"] + label,
+    [type="radio"] + label {
+      display: inline-block;
+      margin-left: 1em;
+    }
+
+    [type="radio"] + label {
+      margin-right: 1em;
+    }
+
+
+   /**
+    * Form Style
+
+
+
+
+    input[type=text],
+    input[type=email],
+    input[type=url],
+    input[type=password],
+    select,
+    textarea {
+      padding: 0.5em;
+      border: 1px solid rgb(220,220,220);
+    }
+
+    input[type=text]:focus,
+    input[type=email]:focus,
+    input[type=url]:focus,
+    input[type=password]:focus,
+    textarea:focus,
+    select:focus {
+      outline: 0;
+      border-color: blue;
+    }
+   */

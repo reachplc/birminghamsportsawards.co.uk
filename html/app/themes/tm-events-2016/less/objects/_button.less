@@ -1,0 +1,45 @@
+/**
+ * _button.less
+ */
+
+.btn {
+  display: inline-block;
+  padding: 0.75em;
+  border: none;
+  -webkit-border-radius: 0.1875em;
+          border-radius: 0.1875em;
+  line-height: 1em;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  text-decoration: none;
+}
+
+.btn--disabled,
+.btn[disabled] {
+  cursor: default;
+}
+
+//  Button Large
+
+.btn__large {
+  padding: 0.75em;
+  line-height: 1.5em;
+}
+
+//  Button Group
+
+.btn__group {
+  text-align:center; // Aligns the button to the center of the `div`
+
+  > .btn {
+    margin-left: 2em;
+  }
+
+  > .btn:first-child {
+    margin-left: 0;
+  }
+
+}

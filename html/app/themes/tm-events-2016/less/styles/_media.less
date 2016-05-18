@@ -1,0 +1,86 @@
+/**
+ *  Make selected images responsive
+ *
+ *  example:
+    <img class="image__responsive" src="http://example.png" alt="">
+ *
+ */
+
+.image__responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+.image__responsive[src$='.svg'] {
+  height: 100%;
+}
+
+/**
+ *
+ */
+
+.image {
+  margin-bottom: 2em;
+  padding: 2px;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  background-color: @brand--white;
+}
+
+aside .image {
+  margin-bottom: 1em;
+}
+
+/**
+ * Responsive Videos
+ */
+
+.video__responsive {
+  position: relative;
+  margin-bottom: 1em;
+}
+
+.video__responsive video,
+.video__responsive canvas {
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.video__responsive video {
+  height: 100%;
+  position: absolute;
+}
+
+/**
+ * Alignment
+ */
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 14.5px;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 14.5px;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sizesmall {
+  width: 134.5px;
+}
+
+.sizemedium {
+  max-width: 279.5px;
+	height: auto;
+}

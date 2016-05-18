@@ -1,0 +1,65 @@
+/**
+ * List Styling
+ */
+
+
+//
+//  Categoires
+//
+
+.categories {
+ font-family: @body__font-family;
+ font-weight: bold;
+}
+
+.category-item {
+  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid @brand--grey;
+}
+
+  .category__single {
+    padding-top: 1.5em;
+  }
+
+  .categories__columns {
+    padding-top: 1em;
+  }
+
+  .category-item .category-item__title {
+    padding-top: 0.25em;
+    padding-left: 0.5em
+  }
+
+    .category-item__title a {
+      colour: @brand--blue;
+    }
+
+
+.category-item__aside {
+	padding-top: 0;
+}
+
+@media screen and (min-width: 481px) {
+
+  .categories__columns {
+    padding-right: 0;
+    height:100%;
+  }
+
+  .categories__columns .category-item {
+    float: left;
+    padding-right: 14.5px;
+    padding-left: 14.5px;
+    width: 50%;
+    height: auto;
+    border-bottom: none;
+		min-height: 10em;
+    margin-bottom: 0;
+  }
+
+  .categories__columns .category-item:nth-child(2n+1) {
+    padding-left: 0;
+  }
+
+}

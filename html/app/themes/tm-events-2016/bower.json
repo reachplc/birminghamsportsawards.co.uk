@@ -1,0 +1,25 @@
+{
+  "name": "tm-events-2016",
+  "version": "1.0.0",
+  "homepage": "http://www.trinitymirror.com",
+  "authors": [
+    "Trinity Mirror Creative"
+  ],
+  "description": "",
+  "license": "n/a",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "html5shiv": "html5shiv#3.7.2",
+    "possession": "https://github.com/michaelbragg/possession.git#develop",
+    "jquery": "1.11.3",
+    "FitVids": "1.1.0",
+    "jquery-validate": "1.13.1"
+  }
+}

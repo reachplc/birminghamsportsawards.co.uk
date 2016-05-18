@@ -1,0 +1,72 @@
+
+.btn {
+  border-radius: 7.25px;
+	border: 1px solid @brand--grey-dark;
+  background-color: @brand--grey;
+  background-image: -moz-linear-gradient(top, @brand--grey 0%, @brand--grey-dark 100%); /* FF3.6+ */
+  background-image: -webkit-linear-gradient(top, @brand--grey 0%,@brand--grey-dark 100%); /* Chrome10+,Safari5.1+ */
+  background-image: -o-linear-gradient(top, @brand--grey 0%,@brand--grey-dark 100%); /* Opera 11.10+ */
+  background-image: -ms-linear-gradient(top, @brand--grey 0%,@brand--grey-dark 100%); /* IE10+ */
+  background-image: linear-gradient(to bottom, @brand--grey 0%,@brand--grey-dark 100%); /* W3C */
+  background-repeat: repeat-x;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+  font-family: @body__font-family;
+  color: @brand--white;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+  .btn:active,
+  .btn:link,
+  .btn:visited {
+    color: @brand--white;
+  }
+
+  .btn:hover,
+  .btn:focus {
+		background-color: @brand--grey-dark;
+    background-position: 0 -1em;
+    -webkit-transition:	background-position 0.1s linear;
+    -moz-transition:		background-position 0.1s linear;
+    -o-transition:			background-position 0.1s linear;
+    transition:					background-position 0.1s linear;
+  }
+
+.btn--primary {
+	background: @color--interact; /* Old browsers */
+  background: -moz-linear-gradient(top, @color--interact 0%, @brand--blue-dark 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top, @color--interact 0%,@brand--blue-dark 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, @color--interact 0%,@brand--blue-dark 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, @color--interact 0%,@brand--blue-dark 100%); /* IE10+ */
+  background: linear-gradient(to bottom, @color--interact 0%,@brand--blue-dark 100%); /* W3C */
+	background-repeat:repeat-x;
+	border-color: @brand--blue-dark;
+}
+
+  .btn--primary:active,
+  .btn--primary:link,
+  .btn--primary:visited {
+    color: @brand--white;
+  }
+
+	.btn--primary:hover,
+  .btn--primary:focus,
+  input.btn--primary:hover,
+  input.btn--primary:focus {
+    background-color: @brand--blue-dark;
+    background-position: 0 -1em;
+		-webkit-transition:	background-position 0.1s linear;
+		-moz-transition:		background-position 0.1s linear;
+		-o-transition:			background-position 0.1s linear;
+		transition:					background-position 0.1s linear;
+  }
+
+.btn__large {
+  font-size: 1.375em;
+  width: 100%;
+}
+
+.btn__full {
+  width: 100%;
+}

@@ -64,3 +64,4 @@ html/app/themes/*
 
 #### White-list Themes
 !html/app/themes/index.php
+!html/app/themes/tm-events-2016/

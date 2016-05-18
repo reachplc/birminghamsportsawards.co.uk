@@ -1,0 +1,74 @@
+/**
+ * Footer
+ */
+
+.footer__main {
+  border-top: 2px solid @brand--grey-dark;
+  background-color: @brand--grey-light;
+}
+
+.copyright {
+  // Remove default padding on `p` elements
+  margin-bottom: 0;
+  font-family: @body__font-family;
+  font-size: 12px;
+  line-height: 1.5rem;
+  color: @brand--black;
+}
+
+  @media screen and (min-width: 481px) {
+      .copyright {
+        line-height: 3rem;
+      }
+    }
+
+  .copyright a:link,
+  .copyright a:visited,
+  .copyright a:active {
+    color: @color--interact;
+    font-weight: normal;
+  }
+
+//  Footer Sub
+
+.footer__sub {
+  border-top: 2px solid @brand--black;
+  background-color: #2a292b;
+  font-family: @body__font-family;
+  color: @brand--grey;
+}
+
+  .footer__sub .wrapper__sub {
+    padding: 1rem 0;
+  }
+
+  .footer__sub a:link,
+  .footer__sub a:visited,
+  .footer__sub a:active {
+    color: @brand--grey;
+    font-weight: normal;
+  }
+
+  .footer__sub a:hover,
+  .footer__sub a:focus {
+    color: @brand--white;
+  }
+
+    .footer__sub--links {
+      margin-bottom: 1.5em;
+    }
+
+    .footer__sub--links {
+      padding-right: 14.5px;
+      padding-left: 14.5px;
+      font-size: 0.875em;
+      line-height: 1.7rem;
+    }
+
+.footer__sub h4 {
+  padding-right: 14.5px;
+  padding-bottom: 10px;
+  padding-left: 14.5px;
+  border-bottom: 1px solid @brand--grey-dark;
+  color: @brand--white;
+}

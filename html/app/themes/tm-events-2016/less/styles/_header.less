@@ -1,0 +1,41 @@
+
+.header__main {
+  z-index: 100;
+  // Allow space for overhang of logo
+  margin-bottom: 8em;
+  border-bottom: 2px solid @brand--blue-dark;
+  background-color: @brand--blue;
+  background-image: -moz-linear-gradient(top, @brand--blue 0%, @brand--blue-dark 100%); /* FF3.6+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@brand--blue), color-stop(100%,@brand--blue-dark)); /* Chrome,Safari4+ */
+  background-image: -webkit-linear-gradient(top, @brand--blue 0%,@brand--blue-dark 100%); /* Chrome10+,Safari5.1+ */
+  background-image: -o-linear-gradient(top, @brand--blue 0%,@brand--blue-dark 100%); /* Opera 11.10+ */
+  background-image: -ms-linear-gradient(top, @brand--blue 0%,@brand--blue-dark 100%); /* IE10+ */
+  background-image: linear-gradient(to bottom, @brand--blue 0%,@brand--blue-dark 100%); /* W3C */
+  background-repeat: repeat-x;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.25);
+}
+
+  //  Overwrite `display: flex;` for header only
+  .header__main .wrapper__sub {
+    display: block;
+  }
+
+  .header__main img {
+    // Allow the image to overlay the element below
+    z-index: 1000;
+    position: absolute;
+    width: 150px;
+		height: auto;
+  }
+
+    @media screen and (min-width: 768px){
+      .header__main img {
+        width: 200px;
+      }
+    }
+
+    @media screen and (min-width: 850px){
+      .header__main img {
+        width: 264px;
+      }
+    }

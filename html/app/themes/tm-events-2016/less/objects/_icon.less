@@ -1,0 +1,36 @@
+/**
+ * Icons
+ *
+ * Example:
+
+    <a class="" href="#">
+      <span class="icon sprite sprite--[icon name]"></span>
+      Text
+    </a>
+
+ *
+ */
+
+.icon {
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+  zoom: 1;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+  .icon__prepend {
+    margin-right: 44px;
+  }
+
+  .icon__append {
+    margin-left: 44px;
+  }
+
+  .icon__overlay {
+    position: absolute;
+    /* @TODO: temp solution. need to position in the middle of the parent element */
+    top: 27px;
+    left: 27px;
+  }

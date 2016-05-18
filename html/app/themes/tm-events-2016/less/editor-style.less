@@ -1,0 +1,46 @@
+/*!
+ * Editor Styles
+ */
+
+//  Base
+
+@import '_fonts.less';
+@import '_variables.less';
+
+@import '../library/possession/base/_layout.less';
+@import '../library/possession/base/_typography.less';
+@import '../library/possession/base/_media.less';
+@import '../library/possession/base/_list.less';
+@import '../library/possession/base/_table.less';
+
+@import 'base/_wordpress.less';
+
+//  Objects
+
+//  @import 'possesion/objects/_object-name.less';
+@import 'objects/_list.less';
+@import 'objects/_menu.less';
+@import 'objects/_button.less';
+@import 'objects/_gallery.less';
+@import 'objects/_block.less';
+@import 'objects/_icon.less';
+@import 'objects/_table.less';
+
+.clear { clear: both; }
+
+//  To extend the styling of these objects, create a folder called
+//  styles to store the less files and import below under the
+//  Styling header
+
+//  Styling
+
+@import 'styles/_typography.less';
+@import 'styles/_media.less';
+@import 'styles/_button.less';
+@import 'styles/_list.less';
+@import 'styles/_alert.less';
+
+//  Core
+//  Placed at the end as most of these classes will overwrite others.
+@import 'base/_core.less';
+@import '../library/possession/base/_core.less';
