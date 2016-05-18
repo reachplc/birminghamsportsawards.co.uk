@@ -19,7 +19,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php if ( tm_hero_has_hero() ) { body_class( 'has-hero' ); } else { body_class(); }; ?>>
+<body <?php if ( function_exists( 'tm_hero_has_hero' ) && tm_hero_has_hero() ) { body_class( 'has-hero' ); } else { body_class(); }; ?>>
 
 	<?php if ( function_exists( 'HM_GTM\tag' ) ) { HM_GTM\tag(); } ?>
 
@@ -52,7 +52,7 @@
 
 <?php
 
-if ( ! tm_hero_has_hero() ) :
+if ( ! function_exists( 'tm_hero_has_hero' ) || ! tm_hero_has_hero() ) :
 	return;
 else : ?>
 <section class="hero wrapper box__large hero--image" style="background-image: url(
@@ -66,10 +66,10 @@ else : ?>
 
 		<div class="hero__content">
 
-		<?php if ( tm_hero_has_field( 'tagline' ) ) { ?>
+<?php if ( tm_hero_has_field( 'tagline' ) ) { ?>
 			<h4 class="hero__copy gamma"><?php echo esc_html( tm_hero_the_tagline() ); ?></h4>
 		<?php
-		} else { ?>
+} else { ?>
 			<h4 class="hero__copy gamma">Celebrate your success in business with the Birmingham Post.</h4>
 		<?php } ?>
 
@@ -77,7 +77,7 @@ else : ?>
 			<a class="hero__btn btn btn--primary" href="<?php echo esc_url( tm_hero_the_btn_link() ); ?>">
 				<?php echo esc_html( tm_hero_the_btn_text() ); ?>
 			</a>
-		<?php } ?>
+<?php } ?>
 
 		</div>
 
