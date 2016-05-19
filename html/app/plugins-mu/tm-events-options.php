@@ -275,7 +275,7 @@ function tm_events_the_venue_info() {
 	return false;
 }
 
-function tm_events_has_twitter( $field ) {
+function tm_events_has_twitter( $field = '' ) {
 
 	$options = get_blog_option( get_current_blog_id(), '_tm-events-options', false );
 
