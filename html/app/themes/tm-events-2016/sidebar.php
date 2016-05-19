@@ -6,28 +6,25 @@
  *
  * @package tm-events-2016
  */
-
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
 ?>
 
+<?php if ( function_exists( 'tm_events_has_venue' ) && tm_events_has_venue() ) : ?>
 <article class="box separator--horizontal" itemscope itemtype="http://schema.org/Event">
 
 	<?php // @TODO allow user to change details via admin ?>
 
   <h3 class="gamma heading--main">Awards Ceremony</h3>
 
-  <img class="image image__responsive" src="<?php echo get_template_directory_uri(); ?>/gui/venue_icc-birmingham.jpg" alt="">
+	<?php tm_events_the_venue_image(); ?>
 
-  <h4 itemprop="startDate" content="2016-10-26T16:30">Wednesday, 26&nbsp;October&nbsp;2016</h4>
-  <p itemprop="location" itemscope itemtype="http://schema.org/Place">
-  <strong itemprop="name">The&nbsp;ICC, Birmingham</strong>,<br><span itemprop="streetAddress">Broad&nbsp;St</span>,
-	<span itemprop="addressLocality">Birmingham</span>. <span itemprop="postalCode">B1&nbsp;2EA</span></p>
-	<p>Prosecco reception from <span itemprop="doorTime" content="18:30">6:30pm</span>.</p>
+	<?php tm_events_the_venue_date(); ?>
+
+	<?php tm_events_the_venue_location(); ?>
+
+	<?php tm_events_the_venue_info(); ?>
 
 </article>
-
+<?php endif; ?>
 
 <article class="box separator--horizontal">
 
