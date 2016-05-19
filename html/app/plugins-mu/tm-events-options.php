@@ -82,64 +82,107 @@ class TM_Events_Options {
 	public function options_page_fields() {
 
 		$options = new_cmb2_box( array(
-			'id'								=>	$this->meta_prefix,
-			'show_on'						=>	array(
-			'key'								=>	'options-page',
-			'value' 						=>	array( 'tm-events-partners-options' )
+			'id'								=> $this->meta_prefix,
+			'show_on'						=> array(
+			'key'								=> 'options-page',
+			'value' 						=> array( 'tm-events-partners-options' )
 			),
-			'hookup'						=>	false,
-			'context'						=>	'normal',
-			'priority'					=>	'high',
-			'show_names'				=>	'true',
+			'hookup'						=> false,
+			'context'						=> 'normal',
+			'priority'					=> 'high',
+			'show_names'				=> 'true',
 		));
 
 		$options->add_field( array(
-			'id'								=>	$this->meta_prefix . 'venue',
-			'name'							=>	__( 'Venue', 'tm-events-options' ),
-			'desc'							=>	__( 'Add the details of the event venue.', 'tm-events-options' ),
-			'type'							=>	'title',
+			'id'								=> $this->meta_prefix . 'venue',
+			'name'							=> __( 'Venue', 'tm-events-options' ),
+			'desc'							=> __( 'Add the details of the event venue.', 'tm-events-options' ),
+			'type'							=> 'title',
 		) );
 
 		$options->add_field( array(
-			'id'								=>	$this->meta_prefix . 'venue_datetime',
-			'name'							=>	__( 'Date and time of the event', 'tm-events-options' ),
-			'desc'							=>	__( 'What day is the event on and what time does it start?', 'tm-events-options' ),
-			'type'							=>	'text_datetime_timestamp',
+			'id'								=> $this->meta_prefix . 'venue_datetime',
+			'name'							=> __( 'Date and time of the event', 'tm-events-options' ),
+			'desc'							=> __( 'What day is the event on and what time does it start?', 'tm-events-options' ),
+			'type'							=> 'text_datetime_timestamp',
 		) );
 
 		$options->add_field( array(
-			'id'								=>	$this->meta_prefix . 'venue_location',
-			'name'							=>	__( 'Address', 'tm-events-options' ),
-			'desc'							=>	__( 'Where is the venue located?', 'tm-events-options' ),
-			'type'							=>	'textarea_small',
+			'id'								=> $this->meta_prefix . 'venue_location',
+			'name'							=> __( 'Address', 'tm-events-options' ),
+			'desc'							=> __( 'Where is the venue located?', 'tm-events-options' ),
+			'type'							=> 'textarea_small',
 		) );
 
 		$options->add_field( array(
-			'id'								=>	$this->meta_prefix . 'venue_image',
-			'name'							=>	__( 'Venue Image', 'tm-events-options' ),
-			'desc'							=>	__( 'Add an image of the event venue.', 'tm-events-options' ),
-			'type'							=>	'file',
-			'options'						=>	array(
-				'url' => false,
+			'id'								=> $this->meta_prefix . 'venue_image',
+			'name'							=> __( 'Venue Image', 'tm-events-options' ),
+			'desc'							=> __( 'Add an image of the event venue.', 'tm-events-options' ),
+			'type'							=> 'file',
+			'options'						=> array(
+			'url' => false,
 			),
-			'text'							=>	array(
-				'add_upload_file_text' =>	'Add Image',
+			'text'							=> array(
+			'add_upload_file_text' => 'Add Image',
 			),
 		) );
 
 		$options->add_field( array(
-			'id'								=>	$this->meta_prefix . 'venue_info',
-			'name'							=>	__( 'Information', 'tm-events-options' ),
-			'desc'							=>	__( 'Any extra information about the venue.', 'tm-events-options' ),
-			'type'							=>	'textarea_small',
+			'id'								=> $this->meta_prefix . 'venue_info',
+			'name'							=> __( 'Information', 'tm-events-options' ),
+			'desc'							=> __( 'Any extra information about the venue.', 'tm-events-options' ),
+			'type'							=> 'textarea_small',
 		) );
 
-		/*$options->add_field( array(
-			'id'								=>	$this->meta_prefix . 'hero',
-			'name'							=>	__( 'Hero Banner', 'tm-events-options' ),
-			'desc'							=>	__( 'Global settings for the hero banner.', 'tm-events-options' ),
-			'type'							=>	'title',
-		) );*/
+		/**
+		 * Global Hero Banner
+		 */
+
+		$options->add_field( array(
+			'id'								=> $this->meta_prefix . 'hero',
+			'name'							=> __( 'Hero Banner', 'tm-events-options' ),
+			'desc'							=> __( 'Global settings for the hero banner.', 'tm-events-options' ),
+			'type'							=> 'title',
+		) );
+
+		$options->add_field( array(
+			'name'							=> __( 'Hide Banner', 'tm-hero' ),
+			'description'				=> __( 'To hide the hero banner across the site. Check the tick box.', 'tm-hero' ),
+			'id'								=> $this->meta_prefix . 'hero_hide',
+			'type'							=> 'checkbox',
+		) );
+
+		$options->add_field( array(
+			'id'								=> $this->meta_prefix . 'hero_image',
+			'name'							=> __( 'Background', 'tm-hero' ),
+			'desc'							=> 'Select or upload a background image',
+			'type'							=> 'file',
+			'options'						=> array(
+			'url'		=> false,
+			),
+			'text'							=> array(
+			'add_upload_file_text' => 'Add Background',
+			),
+		) );
+
+		$options->add_field( array(
+			'id'								=> $this->meta_prefix . 'hero_tagline',
+			'name'							=> __( 'Tagline', 'tm-hero' ),
+			'type'							=> 'textarea_small',
+		) );
+
+		$options->add_field( array(
+			'id'								=> $this->meta_prefix . 'hero_btn_text',
+			'name'							=> __( 'Button Text', 'tm-hero' ),
+			'type'							=> 'text_medium',
+		) );
+
+		$options->add_field( array(
+			'id'								=> $this->meta_prefix . 'hero_btn_link',
+			'name'							=> __( 'Button Link', 'tm-hero' ),
+			'type'							=> 'text_url',
+			'protocols'					=> array( 'http', 'https', 'mailto' ),
+		) );
 
 	}
 
@@ -174,8 +217,8 @@ function tm_events_the_venue_image() {
 function tm_events_the_venue_date( $format = 'l, d F Y' ) {
 	if ( $datetime = tm_events_has_venue_field( 'datetime' ) ) {
 		$date = new DateTime();
-		$date->setTimestamp($datetime);
-		echo '<h4 itemprop="startDate" content="' . $date->format('Y-m-d') .'T'. $date->format('H:i') . '">' . $date->format($format) . '</h4>';
+		$date->setTimestamp( $datetime );
+		echo '<h4 itemprop="startDate" content="' . esc_html( $date->format( 'Y-m-d' ) ) .'T'. esc_html( $date->format( 'H:i' ) ) . '">' . esc_html( $date->format( $format ) )  . '</h4>';
 	}
 	return false;
 }
@@ -184,11 +227,10 @@ function tm_events_the_venue_location() {
 	if ( $address = tm_events_has_venue_field( 'location' ) ) {
 
 		$output  = '<p itemprop="location" itemscope itemtype="http://schema.org/Place">';
-		$output .=  esc_html( $address );
+		$output .= esc_html( $address );
 		$output .= '</p>';
 
-
-		echo wpautop( $output );
+		echo wpautop( $output ); // WPCS: XSS ok. Content escaped previously
 	}
 	return false;
 }
@@ -196,8 +238,8 @@ function tm_events_the_venue_location() {
 
 function tm_events_the_venue_info() {
 	if ( $info = tm_events_has_venue_field( 'info' ) ) {
-		$output =  esc_html( $info );
-		echo wpautop( $output );
+		$output = esc_html( $info );
+		echo wpautop( $output ); // WPCS: XSS ok. Content escaped previously
 	}
 	return false;
 }

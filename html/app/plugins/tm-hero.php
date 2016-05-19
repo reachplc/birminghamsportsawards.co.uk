@@ -108,14 +108,14 @@ class TM_Hero {
 
 		$tm_hero->add_field( array(
 			'description'				=> __( 'This controls the large, hero, banner at the top of each page. If a field is not entered the site wide default will be used.', 'tm-hero' ),
-			'id'								=> $prefix . 'description' ,
+			'id'								=> $prefix . 'description',
 			'type'							=> 'title',
 		) );
 
 		$tm_hero->add_field( array(
 			'name'							=> __( 'Hide Banner', 'tm-hero' ),
 			'description'				=> __( 'To hide the hero banner on this page. Check the tick box (this will override any global settings).', 'tm-hero' ),
-			'id'								=> $prefix . 'hide' ,
+			'id'								=> $prefix . 'hide',
 			'type'							=> 'checkbox',
 		) );
 
@@ -125,10 +125,10 @@ class TM_Hero {
 			'desc'							=> 'Select or upload aa background',
 			'type'							=> 'file',
 			'options'						=> array(
-					'url'		=> false,
+			'url'		=> false,
 			),
 			'text'							=> array(
-					'add_upload_file_text' => 'Add Background',
+			'add_upload_file_text' => 'Add Background',
 			),
 		) );
 
@@ -149,12 +149,9 @@ class TM_Hero {
 			'name'							=> __( 'Button Link', 'tm-hero' ),
 			'type'							=> 'text_url',
 			'protocols'					=> array( 'http', 'https', 'mailto' ),
-
 		) );
 
 	}
-
-
 
 }
 
@@ -165,47 +162,72 @@ function tm_hero_init() {
 add_action( 'plugins_loaded', 'tm_hero_init' );
 
 function tm_hero_has_hero() {
-	if ( ! get_post_meta( get_the_ID(), '_tm_hero_hide', true ) ) {
+	$options_global = get_blog_option( get_current_blog_id(), '_tm-events-options', false );
+	// Check for local hero hide
+	if ( get_post_meta( get_the_ID(), '_tm_hero_hide', true ) ) {
+		return false;
+	}
+	// Check for global hero hide
+	if ( ! empty( $options_global['_tm_events_options_hero_hide'] ) ) {
+		return false;
+	}
+	// Check for local hero image
+	if ( get_post_meta( get_the_ID(), '_tm_hero_image', true ) ) {
+		return true;
+	}
+	// Check for global hero image
+	if ( $options_global['_tm_events_options_hero_image'] ) {
 		return true;
 	}
 	return false;
 }
 
 function tm_hero_has_field( $field ) {
-	if ( get_post_meta( get_the_ID(), '_tm_hero_' . sanitize_text_field( $field ), true ) ) {
-		return true;
+	$options_global = get_blog_option( get_current_blog_id(), '_tm-events-options', false );
+	// Local
+	if ( $data = get_post_meta( get_the_ID(), '_tm_hero_' . sanitize_text_field( $field ), true ) ) {
+		return $data;
+	}
+	// Global
+	if ( $data = $options_global[ '_tm_events_options_hero_' . $field ] ) {
+		return $data;
 	}
 	return false;
 }
 
 function tm_hero_the_image() {
-	$field = get_post_meta( get_the_ID(), '_tm_hero_image_id', true );
-	if ( ! empty( $field ) ) {
-		return $field;
+	if ( $attachment_id = tm_hero_has_field( 'image_id' ) ) {
+		 echo esc_html( 'background-image: url(' . wp_get_attachment_url( $attachment_id ) . '); ' );
 	}
 	return false;
 }
 
-function tm_hero_the_tagline() {
-	$field = get_post_meta( get_the_ID(), '_tm_hero_tagline', true );
-	if ( ! empty( $field ) ) {
-		return $field;
+function tm_hero_the_tagline( $before = '', $after = '', $echo = true ) {
+
+	if ( $tagline = tm_hero_has_field( 'tagline' ) ) {
+
+		$tagline = $before . esc_html( $tagline ) . $after;
+
+		if ( $echo ) {
+			echo $tagline; // WPCS: XSS ok. Content escaped previously
+		} else {
+			return $tagline;
+		}
 	}
+
 	return false;
 }
 
 function tm_hero_the_btn_link() {
-	$field = get_post_meta( get_the_ID(), '_tm_hero_btn_link', true );
-	if ( ! empty( $field ) ) {
-		return $field;
+	if ( $btn_link = tm_hero_has_field( 'btn_link' ) ) {
+		echo esc_url( $btn_link );
 	}
 	return false;
 }
 
 function tm_hero_the_btn_text() {
-	$field = get_post_meta( get_the_ID(), '_tm_hero_btn_text', true );
-	if ( ! empty( $field ) ) {
-		return $field;
+	if ( $btn_text = tm_hero_has_field( 'btn_text' ) ) {
+		echo esc_html( $btn_text );
 	}
 	return false;
 }

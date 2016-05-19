@@ -55,24 +55,19 @@
 if ( ! function_exists( 'tm_hero_has_hero' ) || ! tm_hero_has_hero() ) :
 	return;
 else : ?>
-<section class="hero wrapper box__large hero--image" style="background-image: url(
-<?php if ( tm_hero_has_field( 'image' ) ) {
-	echo esc_url( wp_get_attachment_url( tm_hero_the_image() ) );
-} else {
-	echo esc_url( get_template_directory_uri() . '/gui/hero_default.jpg' ); }  ?>
-)">
+<section class="hero wrapper box__large hero--image" style="<?php tm_hero_the_image(); ?>">
 
 	<article class="wrapper__sub">
 
 		<div class="hero__content">
 
-<?php if ( tm_hero_has_field( 'tagline' ) ) { ?>
-			<h4 class="hero__copy gamma"><?php echo esc_html( tm_hero_the_tagline() ); ?></h4>
-<?php } ?>
+			<?php if ( tm_hero_has_field( 'tagline' ) ) { ?>
+			<?php tm_hero_the_tagline( '<h4 class="hero__copy gamma">', '</h4>' ); ?>
+			<?php } ?>
 
 		<?php if ( tm_hero_has_field( 'btn_link' ) && tm_hero_has_field( 'btn_text' ) ) { ?>
-			<a class="hero__btn btn btn--primary" href="<?php echo esc_url( tm_hero_the_btn_link() ); ?>">
-				<?php echo esc_html( tm_hero_the_btn_text() ); ?>
+			<a class="hero__btn btn btn--primary" href="<?php tm_hero_the_btn_link(); ?>">
+				<?php tm_hero_the_btn_text(); ?>
 			</a>
 <?php } ?>
 
