@@ -96,8 +96,7 @@
 	<footer id="colophon" class="footer__main wrapper cf" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 
 	  <div class="wrapper__sub">
-
-	    <p class="copyright ss1-ss4 ms1-ms6 ls1-ls12">&copy; 2016 Trinity Mirror Midlands. All rights reserved. <a href="<?php echo esc_url( home_url( '/terms-conditions/' ) ); ?>">Terms&nbsp;&amp;&nbsp;Conditions</a> | <a href="<?php echo esc_url( home_url( '/cookies/' ) ); ?>">Cookies</a></p>
+	    <p class="copyright ss1-ss4 ms1-ms6 ls1-ls12"><?php printf( '&copy; %1$s Trinity Mirror Midlands. Owned by or licensed to Trinity Mirror Midlands Limited. All rights reserved.', esc_html( date( 'Y' ) ) ); ?> <a href="<?php echo esc_url( home_url( '/terms-conditions/' ) ); ?>">Terms&nbsp;&amp;&nbsp;Conditions</a> | <a href="<?php echo esc_url( home_url( '/cookies/' ) ); ?>">Cookies</a></p>
 
 	  </div>
 
