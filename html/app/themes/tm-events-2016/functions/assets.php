@@ -80,7 +80,7 @@ wp_register_style(
 
 wp_register_style(
 	'tm-events-2016-fonts',
-	'//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700italic,700',
+	'//fast.fonts.com/cssapi/4b8a24ad-4d8f-477a-8984-f47de848c395.css',
 	array(),
 	null
 );

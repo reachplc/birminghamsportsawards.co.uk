@@ -23,7 +23,7 @@ get_header(); ?>
 		if ( have_posts() ) : ?>
 
 				<header>
-					<h1 class="gamma heading--main page-title screen-reader-text"><?php single_post_title(); ?></h1>
+					<h1 class="heading--main page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
 
 			<?php
