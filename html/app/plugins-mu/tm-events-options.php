@@ -146,15 +146,15 @@ class TM_Events_Options {
 		) );
 
 		$options->add_field( array(
-			'name'							=> __( 'Hide Banner', 'tm-hero' ),
-			'description'				=> __( 'To hide the hero banner across the site. Check the tick box.', 'tm-hero' ),
+			'name'							=> __( 'Hide Banner', 'tm-events-options' ),
+			'description'				=> __( 'To hide the hero banner across the site. Check the tick box.', 'tm-events-options' ),
 			'id'								=> $this->meta_prefix . 'hero_hide',
 			'type'							=> 'checkbox',
 		) );
 
 		$options->add_field( array(
 			'id'								=> $this->meta_prefix . 'hero_image',
-			'name'							=> __( 'Background', 'tm-hero' ),
+			'name'							=> __( 'Background', 'tm-events-options' ),
 			'desc'							=> 'Select or upload a background image',
 			'type'							=> 'file',
 			'options'						=> array(
@@ -167,21 +167,52 @@ class TM_Events_Options {
 
 		$options->add_field( array(
 			'id'								=> $this->meta_prefix . 'hero_tagline',
-			'name'							=> __( 'Tagline', 'tm-hero' ),
+			'name'							=> __( 'Tagline', 'tm-events-options' ),
 			'type'							=> 'textarea_small',
 		) );
 
 		$options->add_field( array(
 			'id'								=> $this->meta_prefix . 'hero_btn_text',
-			'name'							=> __( 'Button Text', 'tm-hero' ),
+			'name'							=> __( 'Button Text', 'tm-events-options' ),
 			'type'							=> 'text_medium',
 		) );
 
 		$options->add_field( array(
 			'id'								=> $this->meta_prefix . 'hero_btn_link',
-			'name'							=> __( 'Button Link', 'tm-hero' ),
+			'name'							=> __( 'Button Link', 'tm-events-options' ),
 			'type'							=> 'text_url',
 			'protocols'					=> array( 'http', 'https', 'mailto' ),
+		) );
+
+		/**
+		 * Twitter sidebar
+		 */
+
+		$options->add_field( array(
+			'id'								=> $this->meta_prefix . 'twitter',
+			'name'							=> __( 'Twitter Sidebar', 'tm-events-options' ),
+			'desc'							=> __( 'Twitter widget options', 'tm-events-options' ),
+			'type'							=> 'title',
+		) );
+
+		$options->add_field( array(
+			'id'								=> $this->meta_prefix . 'twitter_hashtag',
+			'name'							=> __( 'Hashtag', 'tm-events-options' ),
+			'desc'							=> __( 'Include the \'&#35;\'.', 'tm-events-options' ),
+			'type'							=> 'text_medium',
+		) );
+
+		$options->add_field( array(
+			'id'								=> $this->meta_prefix . 'twitter_url',
+			'name'							=> __( 'URL', 'tm-events-options' ),
+			'type'							=> 'text_url',
+			'protocols'					=> array( 'http', 'https' ),
+		) );
+
+		$options->add_field( array(
+			'id'								=> $this->meta_prefix . 'twitter_id',
+			'name'							=> __( 'Widget ID', 'tm-events-options' ),
+			'type'							=> 'text_medium',
 		) );
 
 	}
@@ -240,6 +271,40 @@ function tm_events_the_venue_info() {
 	if ( $info = tm_events_has_venue_field( 'info' ) ) {
 		$output = esc_html( $info );
 		echo wpautop( $output ); // WPCS: XSS ok. Content escaped previously
+	}
+	return false;
+}
+
+function tm_events_has_twitter( $field ) {
+
+	$options = get_blog_option( get_current_blog_id(), '_tm-events-options', false );
+
+	if ( ! empty( $options['_tm_events_options_twitter_hashtag'] ) && ! empty( $options['_tm_events_options_twitter_url'] ) && ! empty( $options['_tm_events_options_twitter_id'] ) ) {
+		if ( ! empty( $options[ '_tm_events_options_twitter_' . $field ] ) ) {
+			return $options[ '_tm_events_options_twitter_' . $field ];
+		}
+		return true;
+	}
+	return false;
+}
+
+function tm_events_the_twitter_hashtag() {
+	if ( $hashtag = tm_events_has_twitter( 'hashtag' ) ) {
+		echo esc_html( $hashtag );
+	}
+	return false;
+}
+
+function tm_events_the_twitter_link() {
+	if ( $link = tm_events_has_twitter( 'link' ) ) {
+		echo esc_url( $link );
+	}
+	return false;
+}
+
+function tm_events_the_twitter_id() {
+	if ( $id = tm_events_has_twitter( 'id' ) ) {
+		echo esc_attr( $id );
 	}
 	return false;
 }
