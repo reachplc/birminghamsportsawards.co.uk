@@ -12,16 +12,14 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 
 		<main id="main" class="box__large content__main wrapper cf">
-		  <div class="wrapper__sub">
-		    <article class="content__main ss1-ss4 ms1-ms6 ls1-ls8 separator">
-		      <?php
-		if ( have_posts() ) : ?>
+			<div class="wrapper__sub">
+				<article class="content__main ss1-ss4 ms1-ms6 ls1-ls8 separator">
+					
+		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
+				<h1 class="page-title heading--main"><?php post_type_archive_title(); ?></h1>
+				<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
 			</header><!-- .page-header -->
 
 			<?php
@@ -44,13 +42,13 @@ get_header(); ?>
 			get_template_part( 'content-parts/content', 'none' );
 
 		endif; ?>
-		    </article>
+				</article>
 
 				<aside id="secondary" class="content__aside widget-area ss1-ss4 ms1-ms6 ls9-ls12">
-		      <?php get_sidebar(); ?>
-		    </aside>
+					<?php get_sidebar(); ?>
+				</aside>
 
-		  </div>
+			</div>
 		</main>
 
 	</div><!-- #primary -->
