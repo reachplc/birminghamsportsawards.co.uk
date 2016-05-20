@@ -80,28 +80,26 @@ $supporter_array = new WP_Query(
 <?php endif; ?>
 
 <?php if ( $supporter_array->have_posts() ) : ?>
-		<section class="ss1-ss4 ms1-ms6 ls5-ls12">
-			<h3 class="gamma heading--main">Supported by:</h3>
-			<ul class="list gallery cf">
+	<section class="ss1-ss4 ms1-ms6 ls5-ls12">
+		<h3 class="gamma heading--main">Supported by:</h3>
+		<ul class="list gallery cf">
 
-			<?php while ( $supporter_array->have_posts() ) : $supporter_array->the_post(); ?>
-				<li class="gallery__item">
-					<?php if ( has_post_thumbnail() ) : ?>
-					<a href="<?php echo esc_url( get_permalink() ); ?>">
-					<?php the_post_thumbnail(
-						'logo-partner',
-						array(
-							'class' => 'image__responsive',
-						)
-					); ?>
-					</a>
-					<?php endif; ?>
-				</li>
-	<?php endwhile; ?>
-
-			</ul>
-
-		</section>
+		<?php while ( $supporter_array->have_posts() ) : $supporter_array->the_post(); ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+			<li class="gallery__item">
+				<a href="<?php echo esc_url( get_permalink() ); ?>">
+				<?php the_post_thumbnail(
+					'logo-partner',
+					array(
+						'class' => 'image__responsive',
+					)
+				); ?>
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php endwhile; ?>
+		</ul>
+	</section>
 <?php endif; ?>
 	</div><!--/ wrapper__sub  -->
 
