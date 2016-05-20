@@ -182,14 +182,14 @@ function tm_hero_has_hero() {
 	return false;
 }
 
-function tm_hero_has_field( $field ) {
+function tm_hero_has_field( $field = '' ) {
 	$options_global = get_blog_option( get_current_blog_id(), '_tm-events-options', false );
 	// Local
 	if ( $data = get_post_meta( get_the_ID(), '_tm_hero_' . sanitize_text_field( $field ), true ) ) {
 		return $data;
 	}
 	// Global
-	if ( $data = $options_global[ '_tm_events_options_hero_' . $field ] ) {
+	if ( isset( $options_global[ '_tm_events_options_hero_' . $field ] ) && $data = $options_global[ '_tm_events_options_hero_' . $field ] ) {
 		return $data;
 	}
 	return false;
