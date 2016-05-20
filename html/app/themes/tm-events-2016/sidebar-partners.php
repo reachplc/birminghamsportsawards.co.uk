@@ -55,7 +55,7 @@ $supporter_array = new WP_Query(
 		<section class="grid ss1-ss4 ms1-6 ls1-ls4">
 
 	<!-- pagination here -->
-	<h3 class="gamma heading--main">In association with:</h3>
+	<h3 class="gamma heading--sub">In association with:</h3>
 
 	<!-- the loop -->
 	<?php while ( $associate_array->have_posts() ) : $associate_array->the_post(); ?>
