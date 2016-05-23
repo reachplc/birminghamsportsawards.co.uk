@@ -12,18 +12,24 @@ $profile_title = get_post_meta( get_the_ID(), '_tm_events_partners_profile_title
 $profile_image = get_post_meta( get_the_ID(), '_tm_events_partners_profile_image_id', true );
 $profile_quote = get_post_meta( get_the_ID(), '_tm_events_partners_profile_quote', true );
 $partner_link = get_post_meta( get_the_ID(), '_tm_events_partners_partner_link', true );
+$associated_award = get_post_meta( get_the_ID(), '_tm_events_partners_associated_award', true );
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'block sponsors-item box grid__separator--horizontal' ); ?>>
 	<header class="entry-header">
+		<h1 class="gamma heading--main entry-title">
 		<?php
 		if ( is_single() ) {
-				the_title( '<h1 class="gamma heading--main entry-title">', '</h1>' );
-		} else {
-				the_title( '<h1 class="gamma heading--main entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
-		}
-
-		if ( 'post' === get_post_type() ) : ?>
+				the_title();
+				echo '-&nbsp;' . esc_html( get_the_title( $associated_award ) );
+		} else { ?>
+			<a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark">
+				<?php	the_title(); ?>
+			</a>
+			<?php echo '-&nbsp;' . esc_html( get_the_title( $associated_award ) ); ?>
+		<?php } ?>
+		</h1>
+		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php ctba_2016_posted_on(); ?>
 		</div><!-- .entry-meta -->
