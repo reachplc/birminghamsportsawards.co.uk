@@ -151,7 +151,8 @@ add_action( 'wp_login_failed', 'my_front_end_login_fail' );
 function admin_login_branding() { ?>
 <style type="text/css">
 body {
-	background-color: rgb(25,63,126) !important;
+	background-color: rgb(18,130,197) !important;
+	background-image: linear-gradient(to bottom, rgb(18,130,197) 0%, rgb(0,71,113) 100%) !important;
 }
 body.login div#login h1 a {
 	width: 272px;
