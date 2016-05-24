@@ -256,7 +256,7 @@ class BSA_Entries_2016 {
 			remove_query_arg( 'entry' );
 
 			// Send confirmation email out
-			$confirm_email = $this->send_confirmation( $sanitized_values );
+			$confirm_email = $this->send_confirmation( $post_data['post_title'], $sanitized_values );
 
 			/**
 			 * Redirect back to the form page with a query variable with the new post ID.
@@ -340,28 +340,34 @@ class BSA_Entries_2016 {
 	/**
 	 * Send out confirmation email
 	 */
-	public function send_confirmation( $data ) {
+	public function send_confirmation( $nominee, $data ) {
 
-		$message    = "Birmingham Sports Awards 2016<br><br>";
-	  $message   .= "Nominee:<br>";
-	  $message   .= "Name: " . $_data[ 'submitted_post_title' ] . "<br>";
-	  $message   .= "Email: " . $_data[ $this->meta_prefix . 'nominee_email' ] . "<br>";
-	  $message   .= "Phone: " . $_data[ $this->meta_prefix . 'nominee_phone' ] . "<br>";
-	  $message   .= "<br>";
-		// @TODO add awards array
-	  $message   .= "Award: " . 'award' . "<br>";
-	  $message   .= "Reason: <br>" . $_data[ $this->meta_prefix . 'nominee_reason' ] . "<br>";
-	  $message   .= "<br>";
-	  $message   .= "Nominator:<br>";
-	  $message   .= "Name: " . $_data[ $this->meta_prefix . 'nominator_name' ] . "<br>";
-	  $message   .= "Email: " . $_data[ $this->meta_prefix . 'nominator_email' ] . "<br>";
-	  $message   .= "Phone: " . $_data[ $this->meta_prefix . 'nominator_phone' ] . "<br>";
+		$awards = array();
 
-/*	  $mail->addCC( $config['email']['championsUK'] );
-	  $mail->addBCC( $config['email']['webmaster'] );
-	  $mail->addReplyTo('no.reply@icpublishing.co.uk');*/
+		foreach ( $data[ $this->meta_prefix . 'nominee_award' ] as $value ) {
+			array_push( $awards, get_the_title( intval( $value ) ) );
+		}
 
-		$headers = 'Birmingham Sports Awards <no.reply@birminghamsportsawards.co.uk>' . "\r\n";
+		$message    = '<strong>Birmingham Sports Awards 2016</strong><br><br>';
+		$message   .= '<strong>Nominee:</strong><br>';
+		$message   .= 'Name: ' . $nominee . '<br>';
+		$message   .= 'Email: ' . $data[ $this->meta_prefix . 'nominee_email' ] . '<br>';
+		$message   .= 'Phone: ' . $data[ $this->meta_prefix . 'nominee_phone' ] . '<br>';
+		$message   .= '<br>';
+		$message   .= 'Award: ' . implode( ', ', $awards ) . '.<br>';
+		$message   .= 'Reason: <br>' . $data[ $this->meta_prefix . 'nominee_reason' ] . '<br>';
+		$message   .= '<br>';
+		$message   .= '<strong>Nominator:</strong><br>';
+		$message   .= 'Name: ' . $data[ $this->meta_prefix . 'nominator_name' ] . '<br>';
+		$message   .= 'Email: ' . $data[ $this->meta_prefix . 'nominator_email' ] . '<br>';
+		$message   .= 'Phone: ' . $data[ $this->meta_prefix . 'nominator_phone' ] . '<br>';
+
+		$headers = array(
+			"From: Birmingham Sports Awards <no.reply@birminghamsportsawards.co.uk>\r\n",
+			"Reply-To: Birmingham Sports Awards <no.reply@birminghamsportsawards.co.uk>\r\n",
+			"Bcc: tmcreative@trinitymirror.com \r\n",
+			"Content-Type: text/html; charset=UTF-8\r\n",
+		);
 		$subject = 'Birmingham Sports Awards 2016 - Nominations';
 
 		wp_mail( $data['_bsa_entries_2016_nominator_email'], $subject, $message, $headers );
