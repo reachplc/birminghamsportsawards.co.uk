@@ -61,6 +61,7 @@ html/app/plugins-mu/*
 !html/app/plugins-mu/ti-wordpress-seo.php
 !html/app/plugins-mu/tm-events-awards.php
 !html/app/plugins-mu/tm-events-partners.php
+!html/app/plugins-mu/tm-events-entries.php
 !html/app/plugins-mu/tm-events-options.php
 
 ### Themes
