@@ -36,7 +36,6 @@ class BSA_Entries_2016 {
 			array( $this, 'form_submission' )
 		);
 
-
 	}
 
 	/**
@@ -57,114 +56,112 @@ class BSA_Entries_2016 {
 	public function add_entry_form() {
 
 		$entry = new_cmb2_box( array(
-			'id'           => $this->meta_prefix,
-			'title'				 => __( 'Entries', 'bsa-entries-2016' ),
-			'object_types' => array( 'tm-events-entries', ),
-			//'hookup'       => false,
-			//'save_fields'  => false,
-			'context'			 => 'normal',
-			'priority'		 => 'high',
-			'show_names'	 => 'true',
+			'id'								=> $this->meta_prefix,
+			'title'							=> __( 'Entries', 'bsa-entries-2016' ),
+			'object_types'			=> array( 'tm-events-entries', ),
+			'context'						=> 'normal',
+			'priority'					=> 'high',
+			'show_names'				=> 'true',
 		) );
 
 		$entry->add_field( array(
-			'id'           => 'submitted_post_title',
-			'name'    => __( 'Nominee&rsquo;s Name', 'bsa-entries-2016' ),
-			'type'    => 'text',
-			'default' => array( $this, 'set_title' ),
-			'attributes'	=> array(
-			'placeholder'	=>  __( 'eg, Jane Bloggs', 'bsa-entries-2016' ),
-			'required'	=> 'required',
+			'id'								=> 'submitted_post_title',
+			'name'							=> __( 'Nominee&rsquo;s Name', 'bsa-entries-2016' ),
+			'type'							=> 'text',
+			'default'						=> array( $this, 'set_title' ),
+			'attributes'				=> array(
+			'placeholder'				=> __( 'eg, Jane Bloggs', 'bsa-entries-2016' ),
+			'required'					=> 'required',
 			),
 		) );
 
 		$entry->add_field( array(
-			'id'           => $this->meta_prefix . 'nominee_email',
-			'name'    => __( 'Nominee&rsquo;s Email', 'bsa-entries-2016' ),
-			'type'    => 'text_email',
-			'default' => array( $this, 'set_default' ),
-			'attributes'	=> array(
-			'placeholder'	=>  __( 'eg, jane.bloggs@example.com', 'bsa-entries-2016' ),
+			'id'								=> $this->meta_prefix . 'nominee_email',
+			'name'							=> __( 'Nominee&rsquo;s Email', 'bsa-entries-2016' ),
+			'type'							=> 'text_email',
+			'default'						=> array( $this, 'set_default' ),
+			'attributes'				=> array(
+			'placeholder'				=> __( 'eg, jane.bloggs@example.com', 'bsa-entries-2016' ),
 			),
 		) );
 
 		$entry->add_field( array(
-			'id'           => $this->meta_prefix . 'nominee_phone',
-			'name'    => __( 'Nominee&rsquo;s Phone Number', 'bsa-entries-2016' ),
-			'type'    => 'text',
-			'default' => array( $this, 'set_default' ),
-			'attributes'	=> array(
-			'placeholder'	=>  __( 'eg, 0121 123 4567', 'bsa-entries-2016' ),
+			'id'								=> $this->meta_prefix . 'nominee_phone',
+			'name'							=> __( 'Nominee&rsquo;s Phone Number', 'bsa-entries-2016' ),
+			'type'							=> 'text',
+			'default'						=> array( $this, 'set_default' ),
+			'attributes'				=> array(
+			'placeholder'				=> __( 'eg, 0121 123 4567', 'bsa-entries-2016' ),
 			),
 		) );
 
 		$entry->add_field( array(
-			'id'           => $this->meta_prefix . 'nominee_award',
-			'name'    => __( 'Awards Category', 'bsa-entries-2016' ),
-			'desc'    => __( 'Choose the award(s) to enter.', 'bsa-entries-2016' ),
-			'type'    => 'multicheck',
-			'select_all_button' => false,
-			'attributes'	=> array(),
-			'options_cb' => array( $this, 'get_awards' ),
+			'id'								=> $this->meta_prefix . 'nominee_award',
+			'name'							=> __( 'Awards Category', 'bsa-entries-2016' ),
+			'desc'							=> __( 'Choose the award(s) to enter.', 'bsa-entries-2016' ),
+			'type'							=> 'multicheck',
+			'select_all_button'	=> false,
+			'attributes'				=> array(),
+			'options_cb'				=> array( $this, 'get_awards' ),
 		));
 
 		$entry->add_field( array(
-			'id'           => $this->meta_prefix . 'nominee_reason',
-			'name'    => __( 'I would like to nominate the nominee for this award because&hellip;', 'bsa-entries-2016' ),
-			'description'	=> __( 'Maximum of 250 words.', 'bsa-entries-2016' ),
-			'type'    => 'textarea',
-			'default' => array( $this, 'set_default' ),
-			'attributes'	=> array(
-			'placeholder'	=>  __( 'I would like to nominate the nominee for this award because&hellip;', 'bsa-entries-2016' ),
-			'required'	=> 'required',
-			'max'	=> 2000,
+			'id'								=> $this->meta_prefix . 'nominee_reason',
+			'name'							=> __( 'I would like to nominate the nominee for this award because&hellip;', 'bsa-entries-2016' ),
+			'description'				=> __( 'Maximum of 250 words.', 'bsa-entries-2016' ),
+			'type'							=> 'textarea',
+			'default'						=> array( $this, 'set_default' ),
+			'attributes'				=> array(
+			'placeholder'				=> __( 'I would like to nominate the nominee for this award because&hellip;', 'bsa-entries-2016' ),
+			'required'					=> 'required',
+			'max'								=> 2000,
 			),
 		) );
 
 		$entry->add_field( array(
-			'id'           => $this->meta_prefix . 'nominator_name',
-			'name'    => __( 'Your Name', 'bsa-entries-2016' ),
-			'type'    => 'text',
-			'default' => array( $this, 'set_default' ),
-			'attributes'	=> array(
-			'placeholder'	=>  __( 'eg, Jane Bloggs', 'bsa-entries-2016' ),
-			'required'	=> 'required',
+			'id'								=> $this->meta_prefix . 'nominator_name',
+			'name'							=> __( 'Your Name', 'bsa-entries-2016' ),
+			'type'							=> 'text',
+			'default'						=> array( $this, 'set_default' ),
+			'attributes'				=> array(
+			'placeholder'				=> __( 'eg, Jane Bloggs', 'bsa-entries-2016' ),
+			'required'					=> 'required',
 			),
 		) );
 
 		$entry->add_field( array(
-			'id'           => $this->meta_prefix . 'nominator_email',
-			'name'    => __( 'Your Email', 'bsa-entries-2016' ),
-			'type'    => 'text_email',
-			'default' => array( $this, 'set_default' ),
-			'attributes'	=> array(
-			'placeholder'	=>  __( 'eg, jane.bloggs@example.com', 'bsa-entries-2016' ),
-			'required'	=> 'required',
+			'id'								=> $this->meta_prefix . 'nominator_email',
+			'name'							=> __( 'Your Email', 'bsa-entries-2016' ),
+			'type'							=> 'text_email',
+			'default'						=> array( $this, 'set_default' ),
+			'attributes'				=> array(
+			'placeholder'				=> __( 'eg, jane.bloggs@example.com', 'bsa-entries-2016' ),
+			'required'					=> 'required',
 			),
 		) );
 
 		$entry->add_field( array(
-			'id'           => $this->meta_prefix . 'nominator_phone',
-			'name'    => __( 'Your Phone Number', 'bsa-entries-2016' ),
-			'type'    => 'text',
-			'default' => array( $this, 'set_default' ),
-			'attributes'	=> array(
-			'placeholder'	=>  __( 'eg, 0121 123 4567', 'bsa-entries-2016' ),
+			'id'								=> $this->meta_prefix . 'nominator_phone',
+			'name'							=> __( 'Your Phone Number', 'bsa-entries-2016' ),
+			'type'							=> 'text',
+			'default'						=> array( $this, 'set_default' ),
+			'attributes'				=> array(
+			'placeholder'				=> __( 'eg, 0121 123 4567', 'bsa-entries-2016' ),
 			),
 		) );
 
 		$entry->add_field( array(
-			'id'	=> $this->meta_prefix . 'hidden_check',
-			'name'	=> __( 'Please do not check this box', 'bsa-entries-2016' ),
-			'type'	=> 'checkbox',
-			'select_all_button' => false,
-			'row_classes' => 'hidden',
-			'options' => array(
-      true => 'check',
-	    ),
-			'attributes'	=> array(
-				'hidden' => 'hidden',
-				'class'	=> 'hidden',
+			'id'								=> $this->meta_prefix . 'hidden_check',
+			'name'							=> __( 'Please do not check this box', 'bsa-entries-2016' ),
+			'type'							=> 'checkbox',
+			'select_all_button'	=> false,
+			'row_classes'				=> 'hidden',
+			'options'						=> array(
+			true								=> 'check',
+			),
+			'attributes'				=> array(
+			'hidden'					=> 'hidden',
+			'class'						=> 'hidden',
 			)
 		) );
 
@@ -256,7 +253,7 @@ class BSA_Entries_2016 {
 			remove_query_arg( 'entry' );
 
 			// Send confirmation email out
-			$confirm_email = $this->send_confirmation( $sanitized_values );
+			$confirm_email = $this->send_confirmation( $post_data['post_title'], $sanitized_values );
 
 			/**
 			 * Redirect back to the form page with a query variable with the new post ID.
@@ -272,7 +269,7 @@ class BSA_Entries_2016 {
 					)
 				)
 			);
-		exit;
+			exit;
 		}
 
 	}
@@ -320,48 +317,55 @@ class BSA_Entries_2016 {
 	/**
 	 *
 	 */
-	 public function get_awards(){
- 		$output = array();
- 		$args = array(
- 			'post_type' => 'tm-events-awards',
- 			'posts_per_page' => 500,
- 			'order' => 'ASC',
- 			'orderby' => 'menu_order title'
- 		);
- 		$awards_query = new WP_Query( $args );
- 		// Check query is not empty
- 		foreach ($awards_query->posts as $key ) {
- 			$output[$key->ID] = $key->post_title;
- 		}
+	public function get_awards(){
+		$output = array();
+		$args = array(
+			'post_type' => 'tm-events-awards',
+			'posts_per_page' => 50,
+			'order' => 'ASC',
+			'orderby' => 'menu_order title',
+		);
+		$awards_query = new WP_Query( $args );
+		// Check query is not empty
+		foreach ( $awards_query->posts as $key ) {
+			$output[ $key->ID ] = $key->post_title;
+		}
 
- 		return $output;
- 	}
+		return $output;
+	}
 
 	/**
 	 * Send out confirmation email
 	 */
-	public function send_confirmation( $data ) {
+	public function send_confirmation( $nominee, $data ) {
 
-		$message    = "Birmingham Sports Awards 2016<br><br>";
-	  $message   .= "Nominee:<br>";
-	  $message   .= "Name: " . $_data[ 'submitted_post_title' ] . "<br>";
-	  $message   .= "Email: " . $_data[ $this->meta_prefix . 'nominee_email' ] . "<br>";
-	  $message   .= "Phone: " . $_data[ $this->meta_prefix . 'nominee_phone' ] . "<br>";
-	  $message   .= "<br>";
-		// @TODO add awards array
-	  $message   .= "Award: " . 'award' . "<br>";
-	  $message   .= "Reason: <br>" . $_data[ $this->meta_prefix . 'nominee_reason' ] . "<br>";
-	  $message   .= "<br>";
-	  $message   .= "Nominator:<br>";
-	  $message   .= "Name: " . $_data[ $this->meta_prefix . 'nominator_name' ] . "<br>";
-	  $message   .= "Email: " . $_data[ $this->meta_prefix . 'nominator_email' ] . "<br>";
-	  $message   .= "Phone: " . $_data[ $this->meta_prefix . 'nominator_phone' ] . "<br>";
+		$awards = array();
 
-/*	  $mail->addCC( $config['email']['championsUK'] );
-	  $mail->addBCC( $config['email']['webmaster'] );
-	  $mail->addReplyTo('no.reply@icpublishing.co.uk');*/
+		foreach ( $data[ $this->meta_prefix . 'nominee_award' ] as $value ) {
+			array_push( $awards, get_the_title( intval( $value ) ) );
+		}
 
-		$headers = 'Birmingham Sports Awards <no.reply@birminghamsportsawards.co.uk>' . "\r\n";
+		$message    = '<strong>Birmingham Sports Awards 2016</strong><br><br>';
+		$message   .= '<strong>Nominee:</strong><br>';
+		$message   .= 'Name: ' . $nominee . '<br>';
+		$message   .= 'Email: ' . $data[ $this->meta_prefix . 'nominee_email' ] . '<br>';
+		$message   .= 'Phone: ' . $data[ $this->meta_prefix . 'nominee_phone' ] . '<br>';
+		$message   .= '<br>';
+		$message   .= 'Award: ' . implode( ', ', $awards ) . '.<br>';
+		$message   .= 'Reason: <br>' . $data[ $this->meta_prefix . 'nominee_reason' ] . '<br>';
+		$message   .= '<br>';
+		$message   .= '<strong>Nominator:</strong><br>';
+		$message   .= 'Name: ' . $data[ $this->meta_prefix . 'nominator_name' ] . '<br>';
+		$message   .= 'Email: ' . $data[ $this->meta_prefix . 'nominator_email' ] . '<br>';
+		$message   .= 'Phone: ' . $data[ $this->meta_prefix . 'nominator_phone' ] . '<br>';
+
+		$headers = array(
+			"From: Birmingham Sports Awards <no.reply@birminghamsportsawards.co.uk>\r\n",
+			"Reply-To: Birmingham Sports Awards <no.reply@birminghamsportsawards.co.uk>\r\n",
+			"Bcc: tmcreative@trinitymirror.com \r\n",
+			"Content-Type: text/html; charset=UTF-8\r\n",
+		);
+
 		$subject = 'Birmingham Sports Awards 2016 - Nominations';
 
 		wp_mail( $data['_bsa_entries_2016_nominator_email'], $subject, $message, $headers );
