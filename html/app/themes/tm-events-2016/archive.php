@@ -13,7 +13,7 @@ get_header(); ?>
 
 		<main id="main" class="box__large content__main wrapper cf">
 			<div class="wrapper__sub">
-				<article class="content__main ss1-ss4 ms1-ms6 ls1-ls12">
+				<article class="content__main ss1-ss4 ms1-ms6 ls1-ls8">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -42,6 +42,12 @@ get_header(); ?>
 
 		endif; ?>
 				</article>
+
+
+	<aside id="secondary" class="content__aside widget-area ss1-ss4 ms1-ms6 ls9-ls12">
+      <?php get_sidebar(); ?>
+    </aside>
+
 
 			</div>
 		</main>
