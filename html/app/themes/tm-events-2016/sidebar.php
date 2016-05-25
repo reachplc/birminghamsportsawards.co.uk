@@ -27,7 +27,7 @@
 <?php if ( function_exists( 'tm_events_has_twitter' ) && tm_events_has_twitter() ) : ?>
 <article class="box separator--horizontal">
 
-  <h4 class="gamma heading--sub"><?php tm_events_the_twitter_hashtag(); ?></h4>
+  <h4 class="gamma heading--sub"><img class="image__responsive icon" src="<?php bloginfo('template_directory');?>/gui/icon_twitter.png" alt=""><?php tm_events_the_twitter_hashtag(); ?></h4>
 	<a class="twitter-timeline" data-dnt="true" href="<?php tm_events_the_twitter_link(); ?>" data-widget-id="<?php tm_events_the_twitter_id(); ?>" data-chrome="noheader"><?php tm_events_the_twitter_hashtag(); ?></a>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 

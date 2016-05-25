@@ -19,7 +19,7 @@ mysql -u root -proot -e "create database if not exists birminghamsportsawards"
 #mysql -u root -proot birminghamsportsawards < /vagrant/config/bootstrap.sql
 
 # Install Composer Dependencies
-php /usr/local/bin/composer.phar update --working-dir="/var/www/birminghamsportsawards.local" --no-interaction
+php /usr/local/bin/composer.phar update --working-dir="/var/www/birminghamsportsawards.local" --no-interaction --prefer-source
 
 # Node
 npm -v
