@@ -46,6 +46,18 @@ vagrant up
 
 Visit [http://www.birminghamsportsawards.local](http://www.birminghamsportsawards.local/) to view the development site.
 
+### Accessing the MySQL database
+
+Vagrant's MySQL database can be accessed through SSH using the following credentials:
+
+- SSH Host: 192.168.33.60
+- SSH User: vagrant
+- SSH Password: vagrant
+- MySQL Host: 127.0.0.1
+- MySQL User: root
+- MySQL Password: root
+- MySQL Database: birminghamsportsawards
+
 ### Testing Your Changes
 
 Our test suite is run on every commit pushed to this repository.
