@@ -363,6 +363,7 @@ class BSA_Entries_2016 {
 			"From: Birmingham Sports Awards <no.reply@birminghamsportsawards.co.uk>\r\n",
 			"Reply-To: Birmingham Sports Awards <no.reply@birminghamsportsawards.co.uk>\r\n",
 			"Bcc: tmcreative@trinitymirror.com \r\n",
+			"Bcc: vperry@championsukplc.com \r\n",
 			"Content-Type: text/html; charset=UTF-8\r\n",
 		);
 
