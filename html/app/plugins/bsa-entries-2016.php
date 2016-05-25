@@ -82,6 +82,7 @@ class BSA_Entries_2016 {
 			'default'						=> array( $this, 'set_default' ),
 			'attributes'				=> array(
 			'placeholder'				=> __( 'eg, jane.bloggs@example.com', 'bsa-entries-2016' ),
+			'required'					=> 'required',
 			),
 		) );
 
@@ -92,6 +93,7 @@ class BSA_Entries_2016 {
 			'default'						=> array( $this, 'set_default' ),
 			'attributes'				=> array(
 			'placeholder'				=> __( 'eg, 0121 123 4567', 'bsa-entries-2016' ),
+			'required'					=> 'required',
 			),
 		) );
 
