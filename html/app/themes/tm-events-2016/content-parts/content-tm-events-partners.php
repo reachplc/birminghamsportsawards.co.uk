@@ -21,12 +21,17 @@ $associated_award = get_post_meta( get_the_ID(), '_tm_events_partners_associated
 		<?php
 		if ( is_single() ) {
 				the_title();
+			if ( ! empty( $associated_award ) ) {
 				echo '-&nbsp;' . esc_html( get_the_title( $associated_award ) );
+			}
 		} else { ?>
 			<a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark">
 				<?php	the_title(); ?>
 			</a>
-			<?php echo '-&nbsp;' . esc_html( get_the_title( $associated_award ) ); ?>
+			<?php
+			if ( ! empty( $associated_award ) ) {
+				echo '-&nbsp;' . esc_html( get_the_title( $associated_award ) );
+			} ?>
 		<?php } ?>
 		</h1>
 		<?php if ( 'post' === get_post_type() ) : ?>
@@ -61,7 +66,11 @@ $associated_award = get_post_meta( get_the_ID(), '_tm_events_partners_associated
 
 		<section class="block__content sponsors-item__content">
 		<blockquote>
-		<?php if ( $profile_quote ) : ?><?php echo wpautop( esc_html( $profile_quote ) );?><?php endif; ?>
+		<?php if ( $profile_quote ) : ?>
+			<?php
+			echo wpautop( esc_html( $profile_quote ) ); // WPCS: sanitization ok.
+			?>
+		<?php endif; ?>
 		<?php if ( $profile_name ) : ?><p>- <b itemprop="name"><?php echo esc_html( $profile_name );?></b><?php if ( $profile_title ) : ?>, <span itemprop="jobTitle"><?php echo esc_html( $profile_title );?></span><?php endif; ?></p><?php endif; ?>
 		</blockquote>
 		</section>
