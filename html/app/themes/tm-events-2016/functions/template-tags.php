@@ -191,3 +191,29 @@ function edit_entries_link() {
 	), $query );
 	return $new_query;
 }
+
+/**
+ * Return Partner ID for associated award
+ */
+function find_award_partner( $ID ){
+
+	$output = array();
+
+	$partner_args = array(
+		'post_type'  => 'tm-events-partners',
+		'meta_query' => array(
+			array(
+				'key' => '_tm_events_partners_associated_award',
+				'value' => intval( $ID ),
+				'compare' => '=',
+			),
+		)
+	);
+	$award_partner = new WP_Query( $partner_args );
+
+	foreach ( $award_partner->posts as $value ) {
+		array_push( $output, $value->ID );
+	}
+	return $output;
+
+}
