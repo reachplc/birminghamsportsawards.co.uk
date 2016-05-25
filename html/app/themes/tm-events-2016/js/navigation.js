@@ -92,6 +92,28 @@
       $("#js-nav__main").toggleClass("is-active");
     });
 
+var checked;
+     $('.submit-button').click(function() {
+      checked = $("input[type=checkbox]:checked").length;
+
+//check ot see if one has been checked
+     if(!checked) {
+
+     	//append alert
+      	$('.cmb2-id--bsa-entries-2016-nominee-award').append('<div class="alert alert--message alert--type box alert--info">You must check at least one awards category.</div>');
+	//show alert
+      	$('.alert').show();
+        return false;
+      }
+    });
+
+//remove error if checked
+      	$('.cmb2-id--bsa-entries-2016-nominee-award input[type=checkbox]').click(function() {
+      		 	 	$('.alert').remove();
+
+});
+
+   
   });
 
 }(jQuery));
