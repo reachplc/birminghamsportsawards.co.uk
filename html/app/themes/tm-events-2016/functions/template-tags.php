@@ -217,3 +217,19 @@ function find_award_partner( $ID ){
 	return $output;
 
 }
+
+/**
+ * Return class for heading depending on awards level taxonomy
+ */
+function get_awards_taxonomy_class( $taxonomy_slug ) {
+	if ( is_array( $taxonomy_slug ) || is_object( $taxonomy_slug ) ) {
+		$taxonomy_class = array();
+		foreach ( $taxonomy_slug as $value ) {
+			array_push( $taxonomy_class, 'heading--sub--' . $value->slug );
+		}
+		return implode( ' ' , $taxonomy_class );
+	}
+
+	return 'heading--sub--other';
+
+}
