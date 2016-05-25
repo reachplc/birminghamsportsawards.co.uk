@@ -11,7 +11,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'block category-item box grid__separator--horizontal' ); ?>>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 class="gamma heading--main entry-title">', '</h1>' );?>
+		<?php the_title( '<h3 class="heading--sub ' . get_awards_taxonomy_class( get_the_terms( get_the_ID(), 'awards-levels' ) ) . '">', '</h3>' );?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content block category-item box grid__separator--horizontal">
