@@ -198,4 +198,4 @@ order deny,allow
 # END Brute Force Login Protection
 
 # This allows you to redirect index.html to a specific subfolder
-Redirect 302 /index.html http://www.birminghamsportsawards.co.uk/2015/
+Redirect 302 /index.html http://www.birminghamsportsawards.co.uk/2016/
