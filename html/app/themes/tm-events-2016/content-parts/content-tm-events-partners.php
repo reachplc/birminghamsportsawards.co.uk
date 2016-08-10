@@ -24,7 +24,9 @@ $associated_award = get_post_meta( get_the_ID(), '_tm_events_partners_associated
 				echo '-&nbsp;' . esc_html( get_the_title( $associated_award ) );
 			}
 		} else { ?>
+			<a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark">
 				<?php	the_title(); ?>
+			</a>
 			<?php
 			if ( ! empty( $associated_award ) ) {
 				echo '-&nbsp;' . esc_html( get_the_title( $associated_award ) );
@@ -73,7 +75,7 @@ $associated_award = get_post_meta( get_the_ID(), '_tm_events_partners_associated
 		</section>
 
 		<?php	wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ctba-2016' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'tm-events-2016' ),
 			'after'  => '</div>',
 		) );
 		?>
