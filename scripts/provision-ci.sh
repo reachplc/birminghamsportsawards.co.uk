@@ -9,7 +9,8 @@ phpenv local 5.5
 
 # Install PHP dependancies
 echo "# Install PHP dependancies"
-composer install --no-interaction
+php -n /home/rof/bin/composer config -g github-oauth.github.com $GITHUB_ACCESS
+php -n /home/rof/bin/composer install --no-interaction  --prefer-dist
 ./vendor/bin/phpcs --config-set installed_paths ./vendor/wp-coding-standards/wpcs/
 
 # Setup Node
