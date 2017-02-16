@@ -21,7 +21,6 @@ get_header(); ?>
 				<h1 class="page-title heading--main"><?php post_type_archive_title(); ?></h1>
 				<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
 			</header><!-- .page-header -->
-
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
